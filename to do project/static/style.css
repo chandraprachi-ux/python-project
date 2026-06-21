@@ -1,0 +1,30 @@
+body {
+    font-family: Arial;
+    text-align: center;
+    background: #f2f2f2;
+}
+
+input {
+    padding: 10px;
+    margin: 5px;
+}
+
+button {
+    padding: 10px;
+    background: blue;
+    color: white;
+}
+
+li {
+    margin: 10px;
+    list-style: none;
+}
+
+.done {
+    color: green;
+}
+
+.expired {
+    color: red;
+    text-decoration: line-through;
+}

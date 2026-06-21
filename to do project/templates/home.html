@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<h2>Welcome {{ email }}</h2>
+
+<a href="/logout">Logout</a>
+
+<form action="/add" method="POST">
+    <input type="text" name="task" placeholder="Task" required>
+    <input type="datetime-local" name="deadline" required>
+    <button type="submit">Add</button>
+</form>
+
+<ul>
+{% for t in tasks %}
+    <li>
+        {{ t[2] }} | {{ t[3] }}
+
+        {% if t[4] == "completed" %}
+            <span class="done">✔ Done</span>
+
+        {% elif t[4] == "expired" %}
+            <span class="expired">❌ Expired</span>
+
+        {% else %}
+            <a href="/complete/{{ t[0] }}">Complete</a>
+        {% endif %}
+
+        <a href="/delete/{{ t[0] }}">Delete</a>
+    </li>
+{% endfor %}
+</ul>
+
+</body>
+</html>
